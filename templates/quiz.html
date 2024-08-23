@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function updateTimer() {
+            fetch('/get_time')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('timer').innerText = `${data.minutes}m ${data.seconds}s`;
+                });
+        }
+
+        setInterval(updateTimer, 1000);  // Обновляем таймер каждую секунду
+    </script>
+    <style>
+        body {
+            background: url('{{ url_for('static', filename='images/back-geo.png') }}') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Таймер -->
+    <div class="timer" id="timer">{{ time_passed // 60 }}m {{ time_passed % 60 }}s</div>
+
+    <!-- Контейнер для викторины -->
+    <div class="quiz-container">
+        <div class="progress-container">
+            <div class="progress-bar" style="width: {{ progress }}%;"></div>
+        </div>
+        <h1>Question {{ question_number }} of {{ total_questions }}</h1>
+        <p class="question-text">{{ question['question'] }}</p>
+
+        {% if question['image'] %}
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + question['image']) }}" alt="Question Image">
+        </div>
+        {% endif %}
+
+        <form method="post">
+            <div class="options-container">
+                <div class="options-column">
+                    <div class="option">
+                        <input type="radio" name="answer" value="A" id="optionA">
+                        <label for="optionA"><b>A):</b> {{ question['options'][0] }}</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="answer" value="B" id="optionB">
+                        <label for="optionB"><b>B):</b> {{ question['options'][1] }}</label>
+                    </div>
+                </div>
+                <div class="options-column">
+                    <div class="option">
+                        <input type="radio" name="answer" value="C" id="optionC">
+                        <label for="optionC"><b>C):</b> {{ question['options'][2] }}</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="answer" value="D" id="optionD">
+                        <label for="optionD"><b>D):</b> {{ question['options'][3] }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit">Next Question</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
