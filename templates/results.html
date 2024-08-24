@@ -1,55 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-
-    &lt;!&ndash; Логотип &ndash;&gt;
-    <div class="logo-container">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
-    </div>
-
-    <div class="quiz-container">
-        <h1>Quiz Results</h1>
-        <p class="score">You scored {{ correct_answers }} out of {{ total_questions }}</p>
-
-        <div class="time">
-            Total time taken: {{ time_taken }}
-        </div>
-
-        <table class="results-table">
-            <tr>
-                <th>#</th>
-                <th>Question</th>
-                <th>Your Answer</th>
-                <th>Correct Answer</th>
-                <th>Result</th>
-            </tr>
-            {% for question in session['questions'] %}
-            <tr>
-                <td>{{ loop.index }}</td>
-                <td>{{ question['question'] }}</td>
-                <td>{{ question['options'][["A", "B", "C", "D"].index(question['selected'])] }}</td>
-                <td>{{ question['options'][["A", "B", "C", "D"].index(question['correct'])] }}</td>
-                <td>
-                    {% if question['selected'] == question['correct'] %}
-                        Correct
-                    {% else %}
-                        Incorrect
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-</body>
-</html>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,8 +8,8 @@
     <style>
         /* Body styling with background image */
         body {
-            font-family: Arial, sans-serif;
-            background: url('{{ url_for('static', filename='images/results-back.png') }}') no-repeat center center fixed;
+            font-family: 'Libre Baskerville', serif;
+            background: url('{{ url_for('static', filename='images/new-geo1.webp') }}') no-repeat center center fixed;
             background-size: cover;
             color: #333;
             margin: 0;
@@ -70,6 +18,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+
+        /* Update fonts for results */
+        h1, .score, .time, th, td {
+            font-family: 'Cinzel Decorative', serif;
         }
     </style>
 </head>

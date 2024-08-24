@@ -6,8 +6,22 @@
     <title>Quiz</title>
     <!-- Include Google Fonts for Pirate-Themed Style -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link to CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Set background image in HTML */
+        body {
+            font-family: 'Libre Baskerville', serif;
+            background: url('{{ url_for('static', filename='images/new-geo1.webp') }}') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
     <script>
         function updateTimer() {
             fetch('/get_time')
