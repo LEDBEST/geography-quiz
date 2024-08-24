@@ -49,6 +49,12 @@
             color: white;
         }
 
+        /* Additional style to move the second line to the right */
+        .welcome-container h1 span {
+            display: block; /* Forces 'Geography' to a new line */
+            margin-left: 70px; /* Adjust this value to move the word to the right */
+        }
+
         /* Style for the start button */
         .start-button {
             background-color: #b96229; /* Button color */
@@ -81,7 +87,7 @@
 
     <!-- Content above the video -->
     <div class="welcome-container">
-        <h1>World Geography</h1>
+        <h1>World <span>Geography</span></h1>
         <form method="post" action="{{ url_for('start_quiz') }}">
             <button type="submit" class="start-button">START QUIZ</button>
         </form>
