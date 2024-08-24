@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <!-- Include Google Fonts for Pirate-Themed Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script>
         function updateTimer() {
@@ -14,21 +17,15 @@
                 });
         }
 
-        setInterval(updateTimer, 1000);  // Обновляем таймер каждую секунду
+        setInterval(updateTimer, 1000);  // Updates timer every second
     </script>
-    <style>
-        body {
-            background: url('{{ url_for('static', filename='images/back-geo.png') }}') no-repeat center center fixed;
-            background-size: cover;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Таймер -->
+    <!-- Timer -->
     <div class="timer" id="timer">{{ time_passed // 60 }}m {{ time_passed % 60 }}s</div>
 
-    <!-- Контейнер для викторины -->
+    <!-- Quiz Container -->
     <div class="quiz-container">
         <div class="progress-container">
             <div class="progress-bar" style="width: {{ progress }}%;"></div>
@@ -47,21 +44,21 @@
                 <div class="options-column">
                     <div class="option">
                         <input type="radio" name="answer" value="A" id="optionA">
-                        <label for="optionA"><b>A):</b> {{ question['options'][0] }}</label>
+                        <label for="optionA" data-label="A):">{{ question['options'][0] }}</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="answer" value="B" id="optionB">
-                        <label for="optionB"><b>B):</b> {{ question['options'][1] }}</label>
+                        <label for="optionB" data-label="B):">{{ question['options'][1] }}</label>
                     </div>
                 </div>
                 <div class="options-column">
                     <div class="option">
                         <input type="radio" name="answer" value="C" id="optionC">
-                        <label for="optionC"><b>C):</b> {{ question['options'][2] }}</label>
+                        <label for="optionC" data-label="C):">{{ question['options'][2] }}</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="answer" value="D" id="optionD">
-                        <label for="optionD"><b>D):</b> {{ question['options'][3] }}</label>
+                        <label for="optionD" data-label="D):">{{ question['options'][3] }}</label>
                     </div>
                 </div>
             </div>
