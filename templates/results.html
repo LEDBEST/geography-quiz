@@ -18,11 +18,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow-y: auto; /* Allow vertical scrolling */
         }
 
         /* Update fonts for results */
         h1, .score, .time, th, td {
             font-family: 'Cinzel Decorative', serif;
+        }
+
+        /* Styling for the quiz container */
+        .quiz-container {
+            max-height: 90vh; /* Maximum height of the container */
+            overflow-y: auto; /* Allow vertical scrolling */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Styling for the button */
@@ -46,6 +57,33 @@
 
         .return-button:hover {
             background-color: #e67e22;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .quiz-container {
+                width: 90%;
+                padding: 10px;
+                margin-top: 20px;
+            }
+
+            .return-button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quiz-container {
+                width: 100%;
+                padding: 5px;
+                margin-top: 10px;
+            }
+
+            .return-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
