@@ -24,13 +24,36 @@
         h1, .score, .time, th, td {
             font-family: 'Cinzel Decorative', serif;
         }
+
+        /* Styling for the button */
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .return-button {
+            background-color: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .return-button:hover {
+            background-color: #e67e22;
+        }
     </style>
 </head>
 <body>
 
     <!-- Quiz Results Container -->
     <div class="quiz-container">
-        <h1>Test Results</h1>
+        <h1>Quiz Results</h1>
         <p class="score">You scored {{ correct_answers }} out of {{ total_questions }}</p>
 
         <div class="time">
@@ -61,6 +84,9 @@
             </tr>
             {% endfor %}
         </table>
+        <div class="button-container">
+            <a href="{{ url_for('shttps://geo-quiz-403258dfbda4.herokuapp.com/') }}" class="return-button">Return to Start</a>
+        </div>
     </div>
 </body>
 </html>
