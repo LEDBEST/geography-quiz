@@ -33,7 +33,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('{{ url_for('static', filename='images/mobile-bg.jpg') }}') no-repeat center center fixed;
+            background: url('{{ url_for('static', filename='images/mobile-bg.jpg') }}') no-repeat center center;
             background-size: cover;
             z-index: -1; /* Send background behind content */
             display: none; /* Hide by default */
@@ -102,8 +102,9 @@
 
             /* Mobile styles for container and button */
             .welcome-container {
-                padding-left: 20px;
+                padding-left: 20px; /* Reduce padding for mobile */
                 padding-top: 30%;
+                align-items: flex-start; /* Align content to the left */
             }
 
             .welcome-container h1 {
@@ -111,8 +112,9 @@
                 letter-spacing: 3px;
             }
 
+            /* Remove margin left for the second line in mobile */
             .welcome-container h1 span {
-                margin-left: 35px; /* Adjusted for smaller screens */
+                margin-left: 0;
             }
 
             .start-button {
