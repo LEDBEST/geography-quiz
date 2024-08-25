@@ -13,7 +13,6 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
-            background: none; /* Ensure no background image or color */
         }
 
         /* Video as background */
@@ -25,6 +24,19 @@
             height: 100%;
             object-fit: cover;
             z-index: -1; /* Send video behind content */
+        }
+
+        /* Fallback background for mobile */
+        .mobile-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('{{ url_for('static', filename='images/mobile-bg.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1; /* Send background behind content */
+            display: none; /* Hide by default */
         }
 
         /* Content above the video */
@@ -79,12 +91,12 @@
         /* Media query for mobile devices */
         @media (max-width: 768px) {
             /* Hide the default video */
-            .video-background.desktop {
+            .video-background {
                 display: none;
             }
 
-            /* Show the mobile video */
-            .video-background.mobile {
+            /* Show the mobile background image */
+            .mobile-background {
                 display: block;
             }
 
@@ -95,7 +107,7 @@
             }
 
             .welcome-container h1 {
-                font-size: 44px; /* Smaller font size for mobile */
+                font-size: 48px; /* Smaller font size for mobile */
                 letter-spacing: 3px;
             }
 
@@ -109,28 +121,20 @@
                 margin-top: 100px;
             }
         }
-
-        /* Default to hide the mobile video */
-        .video-background.mobile {
-            display: none;
-        }
     </style>
 </head>
 <body>
 
     <!-- Default video background -->
-    <video class="video-background desktop" autoplay muted loop preload="auto">
+    <video class="video-background" autoplay muted loop preload="auto">
         <source src="{{ url_for('static', filename='videos/geo-new.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- Mobile video background -->
-    <video class="video-background mobile" autoplay muted loop preload="auto">
-        <source src="{{ url_for('static', filename='videos/geo-new-mobile.mp4') }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Mobile fallback background -->
+    <div class="mobile-background"></div>
 
-    <!-- Content above the video -->
+    <!-- Content above the video or background -->
     <div class="welcome-container">
         <h1>World <span>Geography</span></h1>
         <form method="post" action="{{ url_for('start_quiz') }}">
