@@ -75,54 +75,48 @@
         .start-button:hover {
             background-color: #009755; /* Darker shade for hover */
         }
-        <style>
-    @media (max-width: 768px) {
-        .welcome-container {
-            padding-left: 20px;
-            padding-top: 20%;
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            /* Hide the default video */
+            .video-background.desktop {
+                display: none;
+            }
+            /* Show the mobile video */
+            .video-background.mobile {
+                display: block;
+            }
+
+            /* Mobile styles for container and button */
+            .welcome-container {
+                padding-left: 20px;
+                padding-top: 10%;
+            }
+
+            .start-button {
+                font-size: 28px;
+                padding: 10px 40px;
+                margin-top: 100px;
+            }
         }
 
-        .welcome-container h1 {
-            font-size: 48px;
-            letter-spacing: 3px;
+        /* Default to hide the mobile video */
+        .video-background.mobile {
+            display: none;
         }
-
-        .welcome-container h1 span {
-            margin-left: 30px;
-        }
-
-        .start-button {
-            font-size: 24px;
-            padding: 10px 30px;
-            margin-top: 100px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .welcome-container h1 {
-            font-size: 36px;
-            letter-spacing: 2px;
-        }
-
-        .welcome-container h1 span {
-            margin-left: 15px;
-        }
-
-        .start-button {
-            font-size: 20px;
-            padding: 8px 20px;
-            margin-top: 50px;
-        }
-    }
-</style>
-
     </style>
 </head>
 <body>
 
-    <!-- Video background -->
-    <video class="video-background" autoplay muted loop preload="auto">
+    <!-- Default video background -->
+    <video class="video-background desktop" autoplay muted loop preload="auto">
         <source src="{{ url_for('static', filename='videos/geo-new.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Mobile video background -->
+    <video class="video-background mobile" autoplay muted loop preload="auto">
+        <source src="{{ url_for('static', filename='videos/geo-new-mobile.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
