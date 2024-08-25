@@ -82,6 +82,7 @@
             .video-background.desktop {
                 display: none;
             }
+
             /* Show the mobile video */
             .video-background.mobile {
                 display: block;
@@ -90,12 +91,21 @@
             /* Mobile styles for container and button */
             .welcome-container {
                 padding-left: 20px;
-                padding-top: 10%;
+                padding-top: 30%;
+            }
+
+            .welcome-container h1 {
+                font-size: 48px; /* Smaller font size for mobile */
+                letter-spacing: 3px;
+            }
+
+            .welcome-container h1 span {
+                margin-left: 35px; /* Adjusted for smaller screens */
             }
 
             .start-button {
-                font-size: 28px;
-                padding: 10px 40px;
+                font-size: 24px; /* Smaller button font size */
+                padding: 10px 30px;
                 margin-top: 100px;
             }
         }
