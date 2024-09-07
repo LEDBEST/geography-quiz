@@ -3,7 +3,7 @@ body {
     font-family: 'Libre Baskerville', serif;
     background: url('{{ url_for('static', filename='images/new-geo1.webp') }}') no-repeat center center fixed;
     background-size: cover;
-    color: #333;
+    color: #222;
     height: 100vh;
     margin: 0;
     padding: 0;
