@@ -59,7 +59,7 @@
         <div class="progress-container">
             <div class="progress-bar" style="width: {{ progress }}%;"></div>
         </div>
-        <h1>Вопрос {{ question_number }} из {{ total_questions }}</h1>
+        <h1>Question {{ question_number }} из {{ total_questions }}</h1>
         <p class="question-text">{{ question['question'] }}</p>
 
         {% if question['image'] %}
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="button-container">
-                <button type="submit">Следующий вопрос</button>
+                <button type="submit">Next Question</button>
             </div>
         </form>
     </div>
