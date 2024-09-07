@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Geography Test</title>
     <!-- Подключение шрифтов Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Remove margin, padding, and any background */
         body, html {
@@ -23,7 +23,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1; /* Send video behind content */
+            z-index: -1;
         }
 
         /* Fallback background for mobile */
@@ -35,8 +35,8 @@
             height: 100%;
             background: url('{{ url_for('static', filename='images/mobile-bg.jpg') }}') no-repeat center center;
             background-size: cover;
-            z-index: -1; /* Send background behind content */
-            display: none; /* Hide by default */
+            z-index: -1;
+            display: none;
         }
 
         /* Content above the video */
@@ -47,13 +47,13 @@
             padding-top: 15%;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Align content to the left */
-            padding-left: 50px; /* Add padding to the left */
+            align-items: flex-start;
+            padding-left: 50px;
         }
 
         /* Style for the header */
         .welcome-container h1 {
-            font-family: 'Cinzel Decorative', serif; /* Updated font */
+            font-family: 'Montserrat', sans-serif;
             font-size: 93px;
             margin: 0;
             letter-spacing: 7px;
@@ -61,15 +61,15 @@
             color: white;
         }
 
-        /* Additional style to move the second line to the right */
+        /* Style for the second line */
         .welcome-container h1 span {
-            display: block; /* Forces 'Geography' to a new line */
-            margin-left: 70px; /* Adjust this value to move the word to the right */
+            display: block;
+            margin-left: 70px;
         }
 
         /* Style for the start button */
         .start-button {
-            background-color: #b96229; /* Button color */
+            background-color: #b96229;
             color: #fff;
             border: none;
             padding: 15px 60px;
@@ -80,45 +80,41 @@
             display: inline-block;
             margin-top: 200px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            font-family: 'Cinzel Decorative', serif; /* Updated font */
+            font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
         }
 
         .start-button:hover {
-            background-color: #009755; /* Darker shade for hover */
+            background-color: #009755;
         }
 
         /* Media query for mobile devices */
         @media (max-width: 768px) {
-            /* Hide the default video */
             .video-background {
                 display: none;
             }
 
-            /* Show the mobile background image */
             .mobile-background {
                 display: block;
             }
 
-            /* Mobile styles for container and button */
             .welcome-container {
-                padding-left: 20px; /* Reduce padding for mobile */
+                padding-left: 20px;
                 padding-top: 30%;
-                align-items: flex-start; /* Align content to the left */
+                align-items: flex-start;
             }
 
             .welcome-container h1 {
-                font-size: 48px; /* Smaller font size for mobile */
+                font-size: 48px;
                 letter-spacing: 3px;
             }
 
-            /* Remove margin left for the second line in mobile */
             .welcome-container h1 span {
                 margin-left: 0;
             }
 
             .start-button {
-                font-size: 24px; /* Smaller button font size */
+                font-size: 24px;
                 padding: 10px 30px;
                 margin-top: 100px;
             }

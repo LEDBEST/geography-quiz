@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <!-- Include Google Fonts for Pirate-Themed Style -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Подключение шрифтов Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
-        /* Set background image in HTML */
+        /* Основной стиль */
         body {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Roboto', sans-serif;
             background: url('{{ url_for('static', filename='images/new-geo1.webp') }}') no-repeat center center fixed;
             background-size: cover;
             color: #333;
@@ -20,6 +20,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /* Стиль для текста вопросов */
+        .question-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Стиль для вариантов ответа */
+        label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
         }
     </style>
     <script>
@@ -31,25 +46,25 @@
                 });
         }
 
-        setInterval(updateTimer, 1000);  // Updates timer every second
+        setInterval(updateTimer, 1000);  // Обновляем таймер каждую секунду
     </script>
 </head>
 <body>
 
-    <!-- Timer -->
+    <!-- Таймер -->
     <div class="timer" id="timer">{{ time_passed // 60 }}m {{ time_passed % 60 }}s</div>
 
-    <!-- Quiz Container -->
+    <!-- Контейнер для викторины -->
     <div class="quiz-container">
         <div class="progress-container">
             <div class="progress-bar" style="width: {{ progress }}%;"></div>
         </div>
-        <h1>Question {{ question_number }} of {{ total_questions }}</h1>
+        <h1>Вопрос {{ question_number }} из {{ total_questions }}</h1>
         <p class="question-text">{{ question['question'] }}</p>
 
         {% if question['image'] %}
         <div class="image-container">
-            <img src="{{ url_for('static', filename='images/' + question['image']) }}" alt="Question Image">
+            <img src="{{ url_for('static', filename='images/' + question['image']) }}" alt="Изображение вопроса">
         </div>
         {% endif %}
 
@@ -77,7 +92,7 @@
                 </div>
             </div>
             <div class="button-container">
-                <button type="submit">Next Question</button>
+                <button type="submit">Следующий вопрос</button>
             </div>
         </form>
     </div>
